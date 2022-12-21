@@ -16,7 +16,6 @@ namespace TechShop.Common
             var fromEmailDisplayName = ConfigurationManager.AppSettings["FromEmailDisplayName"].ToString();
             var fromEmailPassword = ConfigurationManager.AppSettings["FromEmailPassword"].ToString();
             string body = content;
-            toEmailAddress = "longdvnl@gmail.com";
             MailMessage message = new MailMessage(new MailAddress(fromEmailAddress, fromEmailDisplayName), new MailAddress(toEmailAddress));
             message.Subject = subject;
             message.IsBodyHtml = true;
@@ -25,7 +24,7 @@ namespace TechShop.Common
             {
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("longdvnl@gmail.com", "ukigizxjecnavpkg");
+                client.Credentials = new NetworkCredential(fromEmailAddress, fromEmailPassword);
                 client.Host = "smtp.gmail.com";
                 client.Port = 587;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;

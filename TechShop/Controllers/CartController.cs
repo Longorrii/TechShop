@@ -1,6 +1,5 @@
 ﻿using TechShop.Models;
 using TechShop.Common;
-using TechShop.Models;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
@@ -91,7 +90,7 @@ namespace TechShop.Controllers
                 content = content.Replace("{{Address}}", ShipAddress);
                 content = content.Replace("{{Total}}", total.Value.ToString("N0"));
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-                //new MailHelper().SendEmail(order.ShipEmail, "Xác nhận đơn hàng mới từ TNC Store", content);
+                new MailHelper().SendEmail(order.ShipEmail, "Xác nhận đơn hàng mới từ TNC Store", content);
                 new MailHelper().SendEmail(toEmail, "TNC Store", content);
                 Session.Remove(SessionMember.CartSession);
 
@@ -227,46 +226,6 @@ namespace TechShop.Controllers
             }
             
         }
-        //public ActionResult AddItem(long id, int quantity)
-        //{
-        //    var product= db.Products.Find(id);
-        //    var cart = Session[CartSession];
-        //    if (cart != null)
-        //    {
-        //        var list = (List<CartItem>)cart;
-        //        if (list.Exists(x => x.Product.ID == id))
-        //        {
-        //            foreach(var item in list)
-        //            {
-        //                if (item.Product.ID == id)
-        //                {
-        //                    item.Quantity += quantity;
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            var item = new CartItem();
-        //            item.Product = product;
-        //            item.Quantity = quantity;
-        //            list.Add(item);
-        //        }
-        //        Session[CartSession] = list;
-        //    }
-        //    else
-        //    {
-        //        //tạo mới cart item
-        //        var item = new CartItem();
-        //        item.Product = product;
-        //        item.Quantity = quantity;
-        //        var list = new List<CartItem>();
-        //        list.Add(item);
-        //        //gán vào session
-        //        Session[CartSession] = list;
-
-        //    }
-        //    return RedirectToAction("Index");
-        //}
         public ActionResult Success()
         {
             return View();

@@ -1,7 +1,6 @@
 ﻿using TechShop.Models;
 using TechShop.Areas.Admin.Models;
 using TechShop.Common;
-using TechShop.Models;
 using PagedList;
 using System;
 using System.Collections.Generic;

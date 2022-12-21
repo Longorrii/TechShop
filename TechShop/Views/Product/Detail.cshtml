@@ -8,7 +8,6 @@
     <title>@Model.Title</title>
 }
 @section js {
-    @*<script src="/Assets/Client/js/custom.js"></script>*@
     <link href="/Assets/Client/js/rating.css" rel="stylesheet" />
     <script src="/Assets/Client/js/rating.js"></script>
     <script>
@@ -37,23 +36,10 @@
         galleryThumbs.controller.control = galleryTop;
 
     </script>
-    @*<script>
-            $(document).ready(function () {
-                var pid = $('#qtyInput').attr('data-id');
-                var quantity = $('#qtyInput').val();
-                var link = "/them-gio-hang?id=" + pid + "&quantity=" + quantity;
-                $("#add-to-cart").attr("href", link);
-            });
-        </script>*@
     <script>
         var swiper = new Swiper('.product-container', {
             slidesPerView: 1,
             spaceBetween: 10,
-            //autoplay: {
-            //    delay: 2500,
-            //    disableOnInteraction: false,
-            //},
-            // init: false,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -76,20 +62,7 @@
     </script>
     <script>
         $(document).ready(function () {
-                $("#form-review").validate({
-                    //errorPlacement: function (error) {
-                    //    var html = '';
-                    //    if (error) {
-                    //        html = '<div class="alert-box"><div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i></div></div>';
-                          
-                    //        error.insertAfter(".alert i");
-
-                    //    }
-                    //    else {
-                    //        html = '';
-                    //    }
-                    //    $("#form-review").append(html);
-                    //},
+                $("#form-review").validate({                    
                     invalidHandler: function (event, validator) {
                         // 'this' refers to the form
                         var errors = validator.numberOfInvalids();
@@ -446,7 +419,7 @@
                                             <span class="price__selling">@(item.Price.Value.ToString("N0")) đ</span>
                                             <span class="price__old">@oldprice</span>
                                         </div>
-                                        <button class="add-to-cart" @*href="/them-gio-hang?id=@item.ID&quantity=1"*@ data-id="@item.ID">Mua ngay</button>
+                                        <button class="add-to-cart" data-id="@item.ID">Mua ngay</button>
                                     </div>
                                 </div>
                             </div>

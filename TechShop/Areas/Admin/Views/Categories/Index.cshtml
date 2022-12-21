@@ -132,8 +132,6 @@
 
                             </th>
                             <td style="display:flex">
-                                @*@Html.ActionLink("Sửa", "Edit", new { id = item.ID }, new { @class = "btn btn-primary btn-icon-split btn-padding" }) |
-                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions { Confirm = "Bạn có muốn xoá danh mục này ?", OnComplete = "remove", HttpMethod = "Delete" }, new { @class = "btn btn-danger btn-icon-split btn-padding" })*@
                                 <a class="btn btn-success btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Sửa" href="/Admin/Categories/Edit/@item.ID"><i class="fa fa-edit"></i></a> |
                                 <a class="btnDelete btn btn-danger btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Xoá" data-id="@item.ID"><i class="fa fa-trash-alt"></i></a>
                             </td>

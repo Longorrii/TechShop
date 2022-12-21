@@ -44,7 +44,6 @@
             font-weight: 300;
             color: #3b3b3b;
             height: 40px;
-            /* line-height: 60px; */
             background: #f0f3fc;
             cursor: pointer;
             box-sizing: border-box;
@@ -265,27 +264,6 @@
                 </div>
                 <div class="category__paginate">
                     <ul class="pagination">
-                        @*@if (currentPage > ViewBag.First)
-                            {
-                                <li><a href="@link&page=@ViewBag.First"><i aria-hidden="true" class="far fa-angle-double-left"></i></a></li>
-                                <li><a href="@link&page=@ViewBag.Prev"><i aria-hidden="true" class="far fa-angle-left"></i></a></li>
-                            }
-                            @for (int i = startPageIndex; i <= endPageIndex; i++)
-                            {
-                                if (currentPage == i)
-                                {
-                                    <li class="active">@i</li>
-                                }
-                                else
-                                {
-                                    <li><a href="@link&page=@i">@i</a></li>
-                                }
-                            }
-                            @if (currentPage < ViewBag.totalPage)
-                            {
-                                <li><a href="@link&page=@ViewBag.Next"><i aria-hidden="true" class="far fa-angle-right"></i></a></li>
-                                <li><a href="@link&page=@ViewBag.Last"><i aria-hidden="true" class="far fa-angle-double-right"></i></a></li>
-                            }*@
                         @Html.PagedListPager(Model, page => Url.Action("Search",
 new { page,keyword,sortOrder= ViewBag.CurrentSort, category_id = ViewBag.CategoryID }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                     </ul>

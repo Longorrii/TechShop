@@ -212,15 +212,7 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-            <!-- Footer -->
-            @*<footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Gaming Shop</span>
-                        </div>
-                    </div>
-                </footer>*@
-            <!-- End of Footer -->
+            
         </div>
         <!-- End of Content Wrapper -->
     </div>
@@ -264,9 +256,6 @@
     @RenderSection("js", required: false)
     @if (TempData["AlertMessage"] != null)
     {
-        @*<div id="AlertBox" class="alert @TempData["AlertType"] hide" role="alert">
-            @TempData["AlertMessage"]
-        </div>*@
         <script>
             var Title = $('<textarea />').html("@TempData["AlertMessage"]").text();
             swal({

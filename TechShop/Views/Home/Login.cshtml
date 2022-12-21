@@ -39,7 +39,6 @@
                     },
                     submitHandler: function () {
                         var d = $("#login-form").serialize();
-                        //$("#loginbtn").unbind("click").text("Đang đăng nhập...");
                         var url = "/Home/Log";
                         $.post(url, d, function (res) {
                             if (res.status == false) {
