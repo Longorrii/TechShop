@@ -10888,11 +10888,11 @@
     <Content Include="Assets\Client\img\facebook.png" />
     <Content Include="Assets\Client\img\instagram.png" />
     <Content Include="Assets\Client\img\internet-bank.png" />
-    <Content Include="Assets\Client\img\logo.jpg" />
+    <Content Include="Assets\Client\img\logo.png" />
     <Content Include="Assets\Client\img\mastercard.png" />
     <Content Include="Assets\Client\img\search-icon.svg" />
+    <Content Include="Assets\Client\img\techshop-logo.png" />
     <Content Include="Assets\Client\img\tien-mat.png" />
-    <Content Include="Assets\Client\img\tnc-logo.svg" />
     <Content Include="Assets\Client\img\twitter.png" />
     <Content Include="Assets\Client\img\visa.png" />
     <Content Include="Assets\Client\img\youtube.png" />

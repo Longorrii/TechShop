@@ -117,8 +117,8 @@ namespace TechShop.Controllers
             content = content.Replace("{{Address}}", order.ShipAddress);
             content = content.Replace("{{Total}}", order.TotalPrice.Value.ToString("N0"));
             var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-            new MailHelper().SendEmail(order.ShipEmail, "Xác nhận đơn hàng mới từ TNC Store", content);
-            new MailHelper().SendEmail(toEmail, "TNC Store", content);
+            new MailHelper().SendEmail(order.ShipEmail, "Xác nhận đơn hàng mới từ TechShop", content);
+            new MailHelper().SendEmail(toEmail, "TechShop", content);
             Session.Remove("OrderID");
             Session.Remove(SessionMember.CartSession);
             //return View("SuccessView");
