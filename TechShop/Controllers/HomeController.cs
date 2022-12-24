@@ -135,10 +135,10 @@ namespace TechShop.Controllers
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600 * 24)]
-        public PartialViewResult Videos()
+        public PartialViewResult DanhGia()
         {
-            ViewBag.NewestVideo = db.Newses.Where(x => x.CategoryID == 7).OrderByDescending(x => x.PublishedDate).Take(1).ToList();
-            ViewBag.VideoNewses = db.Newses.Where(x => x.CategoryID == 7 && x.ID != 65).OrderByDescending(x => x.PublishedDate).Take(4).ToList();
+            ViewBag.DanhGiaMoiNhat = db.Newses.Where(x => x.CategoryID == 1).OrderByDescending(x => x.PublishedDate).Take(1).ToList();
+            ViewBag.DanhGia = db.Newses.Where(x => x.CategoryID == 1 && x.ID != 65).OrderByDescending(x => x.PublishedDate).Take(4).ToList();
             return PartialView();
         }
         public User GetById(string userName)

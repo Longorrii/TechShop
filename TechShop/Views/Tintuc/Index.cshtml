@@ -4,10 +4,10 @@
 
                 ViewBag.Title = "Index";
                 Layout = "~/Views/Shared/_Layout.cshtml";
-                var NewestPosts = (List<TechShop.Models.News>)ViewBag.NewestPosts;
-                var ProductReviews = (List<TechShop.Models.News>)ViewBag.ProductReviews;
-                var NewestVideo = (List<TechShop.Models.News>)ViewBag.NewestVideo;
-                var VideoNewses = (List<TechShop.Models.News>)ViewBag.VideoNewses;
+                var DanhGia = (List<TechShop.Models.News>)ViewBag.DanhGia;
+                var MeoHay = (List<TechShop.Models.News>)ViewBag.MeoHay;
+                var TuVanMoiNhat = (List<TechShop.Models.News>)ViewBag.TuVanMoiNhat;
+                var TuVan = (List<TechShop.Models.News>)ViewBag.TuVan;
                 var Socials = (List<TechShop.Models.Social>)ViewBag.Socials;
 }
 @section title{
@@ -26,9 +26,9 @@
         <div class="content_row1">
             <div class="content_left">
                 <div class="block newest_post">
-                    <div class="block__header"><span class="block__header__title">BÀI VIẾT MỚI NHẤT</span></div>
+                    <div class="block__header"><span class="block__header__title">ĐÁNH GIÁ</span></div>
                     <div class="block__content">
-                        @foreach (var item in NewestPosts)
+                        @foreach (var item in DanhGia)
                         {
                             <div class="post">
                                 <div class="thumb"><a href="/tin-tuc/chi-tiet/@item.MetaTitle-@item.ID"><img src="@item.Images" alt=""></a></div>
@@ -37,7 +37,7 @@
                             </div>
                         }
                     </div>
-                    <div class="block__readmore"><a href="/tin-tuc/bai-viet-moi-nhat-4">Xem thêm bài viết</a></div>
+                    <div class="block__readmore"><a href="/tin-tuc/danh-gia-1">Xem thêm đánh giá</a></div>
                 </div>
             </div>
             <div class="content_right">
@@ -54,9 +54,9 @@
                     </div>
                 </div>
                 <div class="block review_post">
-                    <div class="block__header"><span class="block__header__title">REVIEW SẢN PHẨM</span></div>
+                    <div class="block__header"><span class="block__header__title">MẸO HAY</span></div>
                     <div class="block__content">
-                        @foreach (var item in ProductReviews)
+                        @foreach (var item in MeoHay)
                         {
                             <div class="post">
                                 <div class="thumb"><a href="/tin-tuc/chi-tiet/@item.MetaTitle-@item.ID"><img src="@item.Images" alt=""></a></div>
@@ -64,17 +64,17 @@
                             </div>
                         }
                     </div>
-                    <div class="block__readmore"><a href="/tin-tuc/review-san-pham-6">Xem thêm bài viết</a></div>
+                    <div class="block__readmore"><a href="/tin-tuc/meo-hay-2">Xem thêm mẹo hay</a></div>
                 </div>
             </div>
         </div>
         <div class="content_row2">
             <div class="content_left">
                 <div class="block">
-                    <div class="block__header"><span class="block__header__title">VIDEO MỚI NHẤT</span></div>
+                    <div class="block__header"><span class="block__header__title">TƯ VẤN MỚI NHẤT</span></div>
                     <div class="block__content newest_video">
                         <div class="post">
-                            @foreach (var item in NewestVideo)
+                            @foreach (var item in TuVanMoiNhat)
                             {
                                 <div class="thumb">
                                     <a href="/tin-tuc/chi-tiet/@item.MetaTitle-@item.ID"><img src="@item.Images" alt=""></a>
@@ -83,14 +83,14 @@
                             }
                         </div>
                     </div>
-                    <div class="block__readmore"><a href="/tin-tuc/tin-tuc-video-7">Xem thêm video nổi bật</a></div>
+                    <div class="block__readmore"><a href="/tin-tuc/tu-van-3">Xem thêm tư vấn</a></div>
                 </div>
             </div>
             <div class="content_right">
                 <div class="block">
-                    <div class="block__header"><span class="block__header__title">VIDEO REVIEW</span></div>
+                    <div class="block__header"><span class="block__header__title">TƯ VẤN</span></div>
                     <div class="block__content newest_videos">
-                        @foreach (var item in VideoNewses)
+                        @foreach (var item in TuVan)
                         {
                             <div class="post">
                                 <div class="thumb">

@@ -11463,7 +11463,7 @@
     <Content Include="Views\Product\SomeProduct.cshtml" />
     <Content Include="Views\Home\SearchOption.cshtml" />
     <Content Include="Views\Home\Feedback.cshtml" />
-    <Content Include="Views\Home\Videos.cshtml" />
+    <Content Include="Views\Home\DanhGia.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Payment\SuccessView.cshtml" />
     <Content Include="Views\Payment\FailureView.cshtml" />
