@@ -79,6 +79,12 @@ namespace TechShop
                 namespaces: new[] { "TechShop.Controllers" }
             );
             routes.MapRoute(
+                name: "Lich su don hang",
+                url: "lich-su-don-hang",
+                defaults: new { controller = "LichSuDonHang", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "TechShop.Controllers" }
+            );
+            routes.MapRoute(
                 name: "Cart",
                 url: "gio-hang",
                 defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
@@ -113,9 +119,7 @@ namespace TechShop
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "TechShop.Controllers" }
-            );
-            
-
+            );            
         }
     }
 }

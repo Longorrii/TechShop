@@ -15,37 +15,6 @@ namespace TechShop
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             log4net.Config.XmlConfigurator.Configure();
-        }
-        //protected void Application_Error(object sender, EventArgs e)
-        //{
-
-        //    string area = Request.FilePath.Split('/')[1];
-        //    if (area.Equals("Admin"))
-        //    {
-        //        Exception exception = Server.GetLastError();
-        //        Response.Clear();
-        //        HttpException httpException = exception as HttpException;
-        //        Response.TrySkipIisCustomErrors = true;
-
-        //        if (httpException == null)
-        //        {
-        //            Server.Transfer("/Admin/Home/Index");
-        //        }
-        //        else
-        //        {
-        //            switch (httpException.GetHttpCode())
-        //            {
-        //                case 404:
-        //                    Server.Transfer("/Admin/Error/Error404");
-        //                    break;
-        //                case 500:
-        //                default:
-        //                    Server.Transfer("/Admin/Error/Error404");
-        //                    break;
-        //            }
-        //        }
-        //        Server.ClearError();
-        //    }
-        //}
+        }        
     }
 }
