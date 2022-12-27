@@ -35,7 +35,7 @@ namespace TechShop.Controllers
                 }
                 return RedirectToAction("Index", "Home");
             }
-                
+
         }
         [HttpGet]
         public ActionResult CheckOut()
@@ -94,9 +94,9 @@ namespace TechShop.Controllers
                 new MailHelper().SendEmail(toEmail, "TechShop", content);
                 Session.Remove(SessionMember.CartSession);
 
-                
+
             }
-            else if(payMethod == "paypal")
+            else if (payMethod == "paypal")
             {
                 var order = new TechShop.Models.Order();
                 var cart = (List<CartItem>)Session[CartSession];
@@ -140,8 +140,8 @@ namespace TechShop.Controllers
             sessionCart.RemoveAll(x => x.Product.ID == id);
             Session[CartSession] = sessionCart;
             var Qty = sessionCart.Sum(x => x.Quantity);
-            var ToTalPrice = sessionCart.Sum(x => x.Quantity * x.Product.Price).Value.ToString("N0")+" đ";
-            var info = new { Qty,ToTalPrice };
+            var ToTalPrice = sessionCart.Sum(x => x.Quantity * x.Product.Price).Value.ToString("N0") + " đ";
+            var info = new { Qty, ToTalPrice };
             return Json(info, JsonRequestBehavior.AllowGet);
         }
         public JsonResult DeleteAll()
@@ -169,11 +169,11 @@ namespace TechShop.Controllers
             var List = new List<CartItem>();
             List = (List<CartItem>)Session[CartSession];
             var Qty = List.Sum(x => x.Quantity);
-            var Total = List.Sum(x => x.Product.Price * x.Quantity).Value.ToString("N0")+" đ";
+            var Total = List.Sum(x => x.Product.Price * x.Quantity).Value.ToString("N0") + " đ";
             var info = new { Qty, Total };
             return Json(info, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult Add(int quantity,long id)
+        public JsonResult Add(int quantity, long id)
         {
             var product = db.Products.Find(id);
             var cart = Session[CartSession];
@@ -221,10 +221,10 @@ namespace TechShop.Controllers
                 var List = new List<CartItem>();
                 List = (List<CartItem>)Session[CartSession];
                 var Qty = List.Sum(x => x.Quantity);
-                var info = new { Qty, status=true };
+                var info = new { Qty, status = true };
                 return Json(info, JsonRequestBehavior.AllowGet);
             }
-            
+
         }
         public ActionResult Success()
         {

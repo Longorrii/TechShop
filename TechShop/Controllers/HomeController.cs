@@ -73,10 +73,10 @@ namespace TechShop.Controllers
             ViewBag.Link = "/dang-nhap";
             if (Session[SessionMember.UserSession] != null)
             {
-                ViewBag.Username = "Xin chào, "+ Session[SessionMember.UserSession].ToString();
+                ViewBag.Username = "Xin chào, " + Session[SessionMember.UserSession].ToString();
             }
-            
-            return PartialView(db.Menus.Where(x=>x.GroupID=="top" && x.IsLocked==true).OrderBy(x=>x.Order).ToList());
+
+            return PartialView(db.Menus.Where(x => x.GroupID == "top" && x.IsLocked == true).OrderBy(x => x.Order).ToList());
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600 * 24)]
@@ -89,14 +89,14 @@ namespace TechShop.Controllers
         [OutputCache(Duration = 3600 * 24)]
         public ActionResult Brand()
         {
-            var model = db.Brands.Where(x => x.Status == true).OrderBy(x=>x.Order).ToList();
+            var model = db.Brands.Where(x => x.Status == true).OrderBy(x => x.Order).ToList();
             return PartialView(model);
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600 * 24)]
         public ActionResult Slide()
         {
-            return PartialView(db.Slides.Where(x=>x.Status==true).OrderBy(x => x.Order).ToList());
+            return PartialView(db.Slides.Where(x => x.Status == true).OrderBy(x => x.Order).ToList());
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600 * 24)]
@@ -130,8 +130,9 @@ namespace TechShop.Controllers
         [OutputCache(Duration = 3600 * 24)]
         public PartialViewResult Feedback()
         {
-            var feedback = db.Feedbacks.Where(x => x.IsReaded == true).OrderBy(x => x.CreatedDate).ToList();
-            return PartialView(feedback);
+            ViewBag.feedback = db.Feedbacks.Where(x => x.IsReaded == true).OrderBy(x => x.CreatedDate).ToList();
+            return PartialView();
+
         }
         [ChildActionOnly]
         [OutputCache(Duration = 3600 * 24)]
@@ -191,13 +192,13 @@ namespace TechShop.Controllers
             }
             else if (result == 0)
             {
-                msg="Tài khoản không tồn tại hoặc không có quyền truy cập";
+                msg = "Tài khoản không tồn tại hoặc không có quyền truy cập";
             }
             else
             {
                 msg = "Mật khẩu không đúng";
             }
-            return Json(new {msg=msg,status = status }, JsonRequestBehavior.AllowGet);
+            return Json(new { msg = msg, status = status }, JsonRequestBehavior.AllowGet);
         }
         public JsonResult Reg(User d)
         {
@@ -215,7 +216,7 @@ namespace TechShop.Controllers
             }
             else
             {
-                return Json(new { status = false, msg="Tên đăng nhập này đã tồn tại !" }, JsonRequestBehavior.AllowGet);
+                return Json(new { status = false, msg = "Tên đăng nhập này đã tồn tại !" }, JsonRequestBehavior.AllowGet);
             }
         }
     }

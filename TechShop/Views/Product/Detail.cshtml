@@ -62,57 +62,57 @@
     </script>
     <script>
         $(document).ready(function () {
-                $("#form-review").validate({                    
-                    invalidHandler: function (event, validator) {
-                        // 'this' refers to the form
-                        var errors = validator.numberOfInvalids();
-                        if (errors) {
-                            $(".alert-box").hide();
-                            var message = errors == 1
-                                ? 'Bạn đã nhập lỗi 1 field. Vui lòng nhập lại field này!'
-                                : 'Bạn đã nhập lỗi ' + errors + ' fields.  Vui lòng nhập lại cho các fields này!';
-                            var html = '<div class="alert-box"><div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>' + message + '</div></div>';
+            $("#form-review").validate({
+                invalidHandler: function (event, validator) {
+                    // 'this' refers to the form
+                    var errors = validator.numberOfInvalids();
+                    if (errors) {
+                        $(".alert-box").hide();
+                        var message = errors == 1
+                            ? 'Bạn đã nhập lỗi 1 field. Vui lòng nhập lại field này!'
+                            : 'Bạn đã nhập lỗi ' + errors + ' fields.  Vui lòng nhập lại cho các fields này!';
+                        var html = '<div class="alert-box"><div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>' + message + '</div></div>';
+                        $("#form-review").append(html);
+                    } else {
+                        $(".alert-box").hide();
+                    }
+                },
+                rules: {
+                    FullName: { required: true },
+                    Review: { required: true },
+                    Email: {
+                        required: true,
+                        email: true
+                    },
+                },
+                messages: {
+                    FullName: { required: "Bắt buộc nhập tên" },
+                    Review: { required: "Bắt buộc nhập nội dung review" },
+                    Email: {
+                        required: "Bắt buộc nhập mail",
+                        email: "Email không hợp lệ"
+                    }
+                },
+                submitHandler: function () {
+                    var d = $("#form-review").serialize();
+                    $("#button-review").unbind("click").text("Đang gửi...");
+                    var url = "/Product/Review";
+                    $.post(url, d, function (res) {
+                        if (res.status == false) {
+                            var html = '<div class="alert-box"><div class="alert alert-success"><i class="fa fa-check-circle"></i> Có lỗi xảy ra trong quá trình gửi!!!.</div></div>';
                             $("#form-review").append(html);
+                            $("#button-review").text("Lỗi");
                         } else {
                             $(".alert-box").hide();
+                            var html = '<div class="alert-box"><div class="alert alert-success"><i class="fa fa-check-circle"></i> Đánh giá đã được gửi đến quản trị trước khi được chấp nhận.</div></div>';
+                            $("#form-review").append(html);
+                            $("#button-review").text("Gửi đi");
                         }
-                    },
-                    rules: {
-                        FullName: { required: true },
-                        Review: { required: true },
-                        Email: {
-                            required: true,
-                            email: true
-                        },
-                    },
-                    messages: {
-                        FullName: { required: "Bắt buộc nhập tên" },
-                        Review: { required: "Bắt buộc nhập nội dung review" },
-                        Email: {
-                            required: "Bắt buộc nhập mail",
-                            email: "Email không hợp lệ"
-                        }
-                    },
-                    submitHandler: function () {
-                        var d = $("#form-review").serialize();
-                        $("#button-review").unbind("click").text("Đang gửi...");
-                        var url = "/Product/Review";
-                        $.post(url, d, function (res) {
-                            if (res.status == false) {
-                                var html = '<div class="alert-box"><div class="alert alert-success"><i class="fa fa-check-circle"></i> Có lỗi xảy ra trong quá trình gửi!!!.</div></div>';
-                                $("#form-review").append(html);
-                                $("#button-review").text("Lỗi");
-                            } else {
-                                $(".alert-box").hide();
-                                var html = '<div class="alert-box"><div class="alert alert-success"><i class="fa fa-check-circle"></i> Đánh giá đã được gửi đến quản trị trước khi được chấp nhận.</div></div>';
-                                $("#form-review").append(html);
-                                $("#button-review").text("Gửi đi");
-                            }
-                        }, "json");
-                    }
-                });
-
+                    }, "json");
+                }
             });
+
+        });
     </script>
 }
 <div class="product-single">
@@ -248,7 +248,7 @@
             </svg>
             <div class="policy__item__text">
                 Hỗ trợ kĩ thuật
-                online 7/7
+                online 24/7
             </div>
         </div>
     </div>

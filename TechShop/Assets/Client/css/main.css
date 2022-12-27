@@ -694,7 +694,7 @@ body {
                 }
 
     .header .header__cart {
-        background: #29324e;
+        background: #005dc4;
         display: flex;
         padding: 10px;
         cursor: pointer;
@@ -719,7 +719,7 @@ body {
         }
 
     .header .header__bottom {
-        background: #eef0f7
+        background: aliceblue
     }
 
         .header .header__bottom .container {
@@ -1228,7 +1228,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #f0f3fc
+        background: aliceblue
     }
 
         .block--policy .policy__item .policy__item__text {
@@ -2645,7 +2645,7 @@ body {
 }
 
     .footer .footer__top {
-        background: rgba(0, 0, 0, .85)
+        background: rgba(0, 93, 196)
     }
 
         .footer .footer__top .f__links {
