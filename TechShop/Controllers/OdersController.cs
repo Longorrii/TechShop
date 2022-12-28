@@ -12,14 +12,13 @@ using TechShop.Models;
 using Newtonsoft.Json;
 namespace TechShop.Controllers
 {
-    public class OrdersController : Controller
+    public class OdersController : Controller
     {
         private TechShopDbContext db = new TechShopDbContext();
 
-        // GET: Orders
+        // GET: Oders
         public ActionResult Index()
-        {
-            //User user = db.Users.Find(Session[SessionMember.UserSession].ToString());
+        {          
             var user = Session[SessionMember.UserSession];
             if (user == null)
             {
@@ -34,7 +33,7 @@ namespace TechShop.Controllers
 
 
         }
-        // GET: Orders/Details/5
+        // GET: Oders/Details/
         public ActionResult Details(long? id)
         {
             if (id == null)
@@ -66,8 +65,6 @@ namespace TechShop.Controllers
             ViewBag.prd = JsonConvert.SerializeObject(model);
             return View(order);
         }
-
-        // GET: Orders/Create
 
         protected override void Dispose(bool disposing)
         {
